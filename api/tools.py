@@ -6,11 +6,20 @@
 def read_file(name):
     '''读取文件内容
     '''
-    with open(name, 'r') as file:
+    # 找到字符串中最后一个斜杠的位置
+    last_slash_index = name.rfind("/")
+
+    # 如果找不到斜杠，则返回原始字符串
+    if last_slash_index == -1:
+        new_name = name
+
+    # 将最后一个斜杠替换为 "_ecc/"
+    new_name = name[:last_slash_index] + "_ecc/" + name[last_slash_index+1:]
+    with open(new_name, 'r') as file:
         text = file.read()
         return text
 
-
+    
 def chunks(l, n):
     for i in range(0, len(l), n):
         yield l[i:i + n]
