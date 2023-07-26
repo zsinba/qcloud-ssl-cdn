@@ -130,7 +130,7 @@ def upload_cert(client, local_cert_info):
         params = {
             "CertificatePublicKey": local_cert_info["cer"],
             "CertificatePrivateKey": local_cert_info["key"],
-            "CertificateType": local_cert_info["type"],
+        #   "CertificateType": local_cert_info["type"],
             "Alias": "Auto upload by api at {}".format(timestr)
         }
         req.from_json_string(json.dumps(params))
